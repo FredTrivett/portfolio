@@ -4,7 +4,6 @@ import { useEffect, useState, useCallback } from "react";
 import localFont from 'next/font/local';
 import LoadingScreen from "@/components/LoadingScreen";
 import Project from "@/components/Project";
-import KanbanBoard from "@/components/KanbanBoard";
 
 // Initialize the local font
 const hugeSalmon = localFont({
@@ -143,7 +142,6 @@ export default function Home() {
     <>
       <LoadingScreen isLoading={isLoading} font={hugeSalmon.className} />
 
-      {/* Main Content */}
       <div
         className={`w-screen h-screen overflow-hidden ${hugeSalmon.className}`}
         onPointerDown={startDrag}
@@ -165,26 +163,22 @@ export default function Home() {
           }}
           className="w-[5000px] h-[5000px] relative bg-[var(--background)] dot-pattern"
         >
-          {/* Main content positioned at the center of canvas */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
             <h1 className="text-6xl font-bold">Fred Trivett</h1>
             <p className="mt-2 text-lg opacity-70">Click and drag anywhere to explore</p>
           </div>
 
-          {/* Projects positioned around the center */}
           <Project
             title="Project 1"
             description="Description here"
-            position={{ top: "45%", left: "60%" }}
+            position={{ top: "47%", left: "55%" }}
           />
 
           <Project
             title="Project 2"
             description="Description here"
-            position={{ top: "55%", left: "30%" }}
+            position={{ top: "53%", left: "40%" }}
           />
-
-          <KanbanBoard />
         </motion.div>
       </div>
     </>
