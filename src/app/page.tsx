@@ -4,6 +4,8 @@ import { useEffect, useState, useCallback } from "react";
 import localFont from 'next/font/local';
 import LoadingScreen from "@/components/LoadingScreen";
 import Project from "@/components/Project";
+import Polaroid from '@/components/Polaroid';
+import Image from "next/image";
 
 // Initialize the local font
 const hugeSalmon = localFont({
@@ -179,6 +181,48 @@ export default function Home() {
             description="Description here"
             position={{ top: "53%", left: "40%" }}
           />
+          <motion.div
+            className="absolute"
+            style={{
+              top: "40%",
+              left: "40%",
+              transform: "rotate(-5deg)"
+            }}
+            initial={{ rotate: -5 }}
+            whileHover={{
+              scale: 1.1,
+              rotate: -2,
+              transition: { duration: 0.2 }
+            }}
+            animate={{ rotate: -5 }}
+          >
+            <Polaroid
+              imageUrl="/hols.jpeg"
+              caption="Summer 2024"
+            />
+          </motion.div>
+
+
+          <motion.div
+            className="absolute"
+            style={{
+              top: "47.5%",
+              left: "45%",
+              transform: "rotate(-5deg)"
+            }}
+            whileHover={{
+              scale: 1.1,
+              rotate: -2,
+              transition: { duration: 0.2 }
+            }}
+          >
+            <Image
+              src="/Birthday.png"
+              alt="Birthday"
+              width={120}
+              height={120}
+            />
+          </motion.div>
         </motion.div>
       </div>
     </>
